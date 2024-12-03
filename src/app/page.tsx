@@ -35,18 +35,6 @@ export default function Page() {
               </a>
             </p>
             <div className="flex gap-x-1 pt-1 font-mono text-sm text-foreground/80 print:hidden">
-              {RESUME_DATA.personalWebsiteUrl ? (
-                <Button
-                  className="size-8"
-                  variant="outline"
-                  size="icon"
-                  asChild
-                >
-                  <a href={RESUME_DATA.personalWebsiteUrl}>
-                    <GlobeIcon className="size-4" />
-                  </a>
-                </Button>
-              ) : null}
               {RESUME_DATA.contact.email ? (
                 <Button
                   className="size-8"
@@ -84,31 +72,6 @@ export default function Page() {
                   </a>
                 </Button>
               ))}
-            </div>
-            <div className="hidden gap-x-2 font-mono text-sm text-foreground/80 print:flex print:text-[12px]">
-              {RESUME_DATA.personalWebsiteUrl ? (
-                <a className="underline" href={RESUME_DATA.personalWebsiteUrl}>
-                  jarocki.me
-                </a>
-              ) : null}
-              /
-              {RESUME_DATA.contact.email ? (
-                <a
-                  className="underline"
-                  href={`mailto:${RESUME_DATA.contact.email}`}
-                >
-                  {RESUME_DATA.contact.email}
-                </a>
-              ) : null}
-              /
-              {RESUME_DATA.contact.tel ? (
-                <a
-                  className="underline"
-                  href={`tel:${RESUME_DATA.contact.tel}`}
-                >
-                  {RESUME_DATA.contact.tel}
-                </a>
-              ) : null}
             </div>
           </div>
 
@@ -197,37 +160,15 @@ export default function Page() {
             })}
           </div>
         </Section>
-
-        <Section className="print-force-new-page scroll-mb-16 print:space-y-4 print:pt-12">
-          <h2 className="text-xl font-bold">Side projects</h2>
-          <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-            {RESUME_DATA.projects.map((project) => {
-              return (
-                <ProjectCard
-                  key={project.title}
-                  title={project.title}
-                  description={project.description}
-                  tags={project.techStack}
-                  link={"link" in project ? project.link.href : undefined}
-                />
-              );
-            })}
-          </div>
+        <Section>
+          <h2 className="text-xl font-bold">Soft Skills</h2>
+          <Card className="py-1">
+            <CardContent className="mt-2 text-xs text-foreground/80 print:mt-1 print:text-[10px]">
+              {RESUME_DATA.softSkills}
+            </CardContent>
+          </Card>
         </Section>
       </section>
-
-      <CommandMenu
-        links={[
-          {
-            url: RESUME_DATA.personalWebsiteUrl,
-            title: "Personal Website",
-          },
-          ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
-            url: socialMediaLink.url,
-            title: socialMediaLink.name,
-          })),
-        ]}
-      />
     </main>
   );
 }
