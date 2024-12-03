@@ -1,12 +1,5 @@
-import {
-  ClevertechLogo,
-  ConsultlyLogo,
-  JojoMobileLogo,
-  MonitoLogo,
-  NSNLogo,
-  ParabolLogo,
-} from "@/images/logos";
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+import { ConsultlyLogo, ParabolLogo } from "@/images/logos";
+import { GitHubIcon, LinkedInIcon, TelegramIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
   name: "Kostiantyn Borysov",
@@ -40,6 +33,11 @@ export const RESUME_DATA = {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/kostiantyn-borysov-b3a23a212/",
         icon: LinkedInIcon,
+      },
+      {
+        name: "Telegram",
+        url: "https://t.me/Kostiantyn_Borysov",
+        icon: TelegramIcon,
       },
     ],
   },
