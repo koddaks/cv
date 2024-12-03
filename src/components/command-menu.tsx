@@ -23,7 +23,7 @@ export const CommandMenu = ({ links }: Props) => {
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
+      if ((e.key === "j" && (e.metaKey || e.ctrlKey)) || (e.key === "b" && e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
       }
@@ -39,6 +39,10 @@ export const CommandMenu = ({ links }: Props) => {
         Press{" "}
         <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
           <span className="text-xs">⌘</span>J
+        </kbd>{" "}
+        or{" "}
+        <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+          <span className="text-xs">Ctrl</span>+<span className="text-xs">B</span>
         </kbd>{" "}
         to open the command menu
       </p>
