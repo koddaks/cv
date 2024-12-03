@@ -7,7 +7,6 @@ import { Section } from "@/components/ui/section";
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RESUME_DATA } from "@/data/resume-data";
-import { ProjectCard } from "@/components/project-card";
 
 export const metadata: Metadata = {
   title: `${RESUME_DATA.name}`,
@@ -93,12 +92,12 @@ export default function Page() {
               <Card key={work.company} className="py-1">
                 <CardHeader className="print:space-y-1">
                   <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none print:text-sm">
+                    <h3 className="inline-flex items-center justify-center gap-x-2 font-semibold leading-none print:text-sm">
                       <a className="hover:underline" href={work.link}>
                         {work.company}
                       </a>
 
-                      <span className="inline-flex gap-x-1">
+                      <span className="flex flex-wrap gap-1">
                         {work.badges.map((badge) => (
                           <Badge
                             variant="secondary"
@@ -169,6 +168,14 @@ export default function Page() {
           </Card>
         </Section>
       </section>
+      <CommandMenu
+        links={[         
+          ...RESUME_DATA.contact.social.map((socialMediaLink) => ({
+            url: socialMediaLink.url,
+            title: socialMediaLink.name,
+          })),
+        ]}
+      />
     </main>
   );
 }
